@@ -1,0 +1,4 @@
+name: GlobalChat
+main: me.NullException.GlobalChat.main
+version: 1.0
+author: NullException
