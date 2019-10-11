@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.config.ServerInfo;
@@ -73,7 +74,23 @@ public class main extends Plugin {
 				e.printStackTrace();
 			}
 		}
-		mysqlSetup();
+		this.getProxy().getScheduler().schedule(this, new Runnable() {
+
+			@Override
+			public void run() {
+				if(getConnection() != null) {
+					try {
+						getConnection().close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				mysqlSetup();
+			}
+			
+		}
+		, 0, 3600, TimeUnit.SECONDS);
 	}
 
 	public void mysqlSetup() {
