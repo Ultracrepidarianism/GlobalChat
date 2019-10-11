@@ -4,14 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.Connection;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.config.ServerInfo;
-import net.md_5.bungee.api.connection.Server;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -90,7 +86,7 @@ public class main extends Plugin {
 			}
 			
 		}
-		, 0, 3600, TimeUnit.SECONDS);
+		, 0, 1, TimeUnit.HOURS);
 	}
 
 	public void mysqlSetup() {
